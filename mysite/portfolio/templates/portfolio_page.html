@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="divide" style="width:100%;margin-top:40px;float:left;"></div>
+
+	{% for image, project in all_projects %}
+		{{ MEDIA_URL }}
+		{% for i in "xxxxxx" %}
+		<div id="name" style="margin-top:50px;margin-left:15%; padding:5px; border:2px solid; float:left;width:70%;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,80,50,1)), color-stop(50%,rgba(241,111,92,1)), color-stop(51%,rgba(246,41,12,1)), color-stop(71%,rgba(240,47,23,1)), color-stop(100%,rgba(231,56,39,1)));">
+			<div class="img-rounded" style="float:left;margin-right:15px;border:2px solid;">
+				<img src="http://placekitten.com/200/200"></img>
+			</div>
+			<div id="project_content">
+				<p style="float:left;">
+					<h1>{{project.name}}</h1>
+					{{project.description}}
+				</p>
+			</div>
+		</div>
+		</br>
+	{% endfor %}
+	{% endfor %}
+
+{% endblock content %}
+

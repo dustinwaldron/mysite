@@ -1,10 +1,16 @@
 <html>
 <head>
-<title>Dustin's Site</title>
-<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+<link rel="shortcut icon" href="{{ MEDIA_URL }}dev_images/DW.ico" type="image/x-icon"/>
+<title>
+Dustin Waldron Computer Science Web Portfolio</title>
+<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/contact.css" rel="stylesheet" />
 </head>
 <body>
+
+	<script src="{{ STATIC_URL}}js/bootstrap.min.js"></script>
 	{% include "header.html" %}
 	{% block content %}{% endblock %}
+	
 </body>
 </html>

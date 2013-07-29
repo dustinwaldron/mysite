@@ -13,8 +13,19 @@ class Course(models.Model):
     class Meta:
     	ordering = ['number']
 
+class SkillCategory(models.Model):
+    name = models.CharField(max_length=200)
+    position = models.PositiveIntegerField()
+
+    class Meta:
+        ordering = ["position"]
+
+    def __unicode__(self):
+        return self.name
+
 class Skill(models.Model):
     name = models.CharField(max_length=50)
+    category = models.ForeignKey(SkillCategory)
 
 
     class Meta:
@@ -23,16 +34,6 @@ class Skill(models.Model):
     def __unicode__(self):
         return self.name
 
-class SkillCategory(models.Model):
-    name = models.CharField(max_length=200)
-    position = models.PositiveIntegerField()
-    skills = models.ManyToManyField('Skill')
-
-    class Meta:
-        ordering = ["position"]
-
-    def __unicode__(self):
-        return self.name
 
 class Experience(models.Model):
 	title = models.CharField(max_length=50)
@@ -47,3 +48,18 @@ class Experience(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+class Interest(models.Model):
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        ordering = ['name']
+
+    def __unicode__(self):
+        return self.name
+
+class Accomplishment(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return self.title

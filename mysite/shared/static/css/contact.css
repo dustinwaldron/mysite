@@ -1,0 +1,67 @@
+#profile-card {
+background: #ff3019; /* Old browsers */
+background: -moz-linear-gradient(top,  #ff3019 0%, #cf0404 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-9 */
+
+}
+
+#body-panel{
+	background: #45484d; /* Old browsers */
+	background: -moz-linear-gradient(top,  #45484d 0%, #000000 14%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(14%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #45484d 0%,#000000 14%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #45484d 0%,#000000 14%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #45484d 0%,#000000 14%); /* IE10+ */
+	background: linear-gradient(to bottom,  #45484d 0%,#000000 14%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+#contact_field{
+	background-color: #F4F4F4;
+	border-radius: 5px;
+	margin: 10px 20% 10px 10%;
+	padding: 20px;
+	overflow: auto;
+	float:left;
+	width:70%;
+}
+
+#id_name, #id_organization, #id_email{
+		width:70%;
+    	height:40px;
+    	font-size:16px;
+    	font-color:black;
+	}
+
+#id_message {
+		width:90%;
+		font-size:16px;
+		font-color:black;
+	}
+
+#submit { 
+	float:left;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	width: 150px;
+	height:50px;
+	color: #000000;
+	font-size: 24px;
+	font-weight: bold;
+	text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
+	border-color: rgba(241, 216, 0, 0.6) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	background-color: #F1A833;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F1D80A), to(#F1A833));
+	background-image: -webkit-linear-gradient(center top, #F1D80A, #F1A833);
+	background-image: -moz-linear-gradient(center top, #F1D80A, #F1A833);
+	background-repeat: repeat-x;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.41);
+	transition: background-position 0.2s ease-in-out 0s;
+	-moz-transition: background-position 0.2s ease-in-out 0s;
+	-webkit-transition: background-position 0.2s ease-in-out 0s;
+}

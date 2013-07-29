@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 from mysite import views as home
 #from portfolio import views
 
@@ -10,9 +11,11 @@ urlpatterns = patterns('',
 	url(r'^$',home.home_page),
 	url(r'^portfolio/',include('portfolio.urls')),
 	url(r'^resume/', include('resume.urls')),
-	url(r'^profile/', include('Profile.urls')),
 	url(r'^blog/', include('blog.urls')),
-    url(r'^contact/', include('portfolio.urls')),
+    url(r'^contact/', include('contact.urls')),
+    url(r'^shared/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT,
+    }),
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^mysite/', include('mysite.foo.urls')),

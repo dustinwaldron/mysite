@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 
 class Project(models.Model):
@@ -11,7 +12,6 @@ class Project(models.Model):
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     category = models.ForeignKey('Category')
-    skills = models.ManyToManyField('Skill')
 
     class Meta:
         ordering = ['-start_date', '-end_date', ]
@@ -23,18 +23,6 @@ class Project(models.Model):
     #def get_absolute_url(self):
     #    return ('portfolio.views.project_detail', (), {'slug': str(self.slug), })
 
-class Skill(models.Model):
-    name = models.CharField(max_length=50)
-
-    class Meta:
-        ordering = ['name']
-
-    def __unicode__(self):
-        return self.name
-
-    #@models.permalink
-    #def get_absolute_url(self):
-    #    return ('portfolio.views.skill_detail', (), {'slug': str(self.slug), })
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
@@ -53,7 +41,7 @@ class Category(models.Model):
 
 class ProjectFile(models.Model):
     project = models.ForeignKey('Project')
-    file = models.FileField(upload_to="project_file/%Y/%m/%d")
+    file = models.FileField(upload_to="project_file")
     desc = models.TextField()
 
     def __unicode__(self):
@@ -64,7 +52,7 @@ class ProjectFile(models.Model):
 
 class ProjectImage(models.Model):
     project = models.ForeignKey('Project')
-    image = models.ImageField(upload_to="project_image/%Y/%m/%d")
+    image = models.ImageField(upload_to="project_image")
     desc = models.TextField()
 
     def __unicode__(self):

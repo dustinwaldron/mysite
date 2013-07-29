@@ -1,7 +1,9 @@
 # Django settings for mysite project.
 import os.path
+from run_mode import RunMode
+run_mode = RunMode('dev')
 
-DEBUG = True
+DEBUG = run_mode.dev
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -50,25 +52,27 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'home/Desktop/djcode/mysite/'
+MEDIA_ROOT = run_mode.path_to('shared')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/shared/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = run_mode.path_to('static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = '/shared/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    run_mode.path_to('shared/static'),
+    run_mode.path_to('shared/project_image')
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -108,10 +112,11 @@ ROOT_URLCONF = 'mysite.urls'
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__),"templates").replace('\\','/'),
-    os.path.join(os.path.dirname(__file__),"portfolio/templates").replace('\\','/'),
-    os.path.join(os.path.dirname(__file__),"blog/templates").replace('\\','/'),
-    os.path.join(os.path.dirname(__file__),"resume/templates").replace('\\','/'),
+    run_mode.path_to("templates")
+    #os.path.join(os.path.dirname(__file__),"portfolio/templates").replace('\\','/'),
+    #os.path.join(os.path.dirname(__file__),"blog/templates").replace('\\','/'),
+    #os.path.join(os.path.dirname(__file__),"resume/templates").replace('\\','/'),
+    #os.path.join(os.path.dirname(__file__),"")
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -125,10 +130,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mysite',
     'portfolio',
     'blog',
     'resume',
-    'Profile',
+    'contact',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

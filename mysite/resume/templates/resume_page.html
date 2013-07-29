@@ -3,25 +3,9 @@
 {% block content %}
 
 <div id="divide" style="width:100%;margin-bottom:40px;float:left;"></div>
-	<div id="divide" style="width:100%;margin-bottom:20px;float:left;"></div>
-	<h1 style="width=70%;margin-left:15%;margin-right:15%;margin-top:60px;margin-bottom:10px">Relevant Skills</h1>
-	<!-- Add skills here --> 
-	<div id="divide" style="width:100%;margin-bottom:40px;float:left;"></div>
-	<h1 style="width=70%;margin-left:15%;margin-right:15%;margin-top:60px;margin-bottom:10px">Relevant Coursework</h1>
-	{% for course in classes %}
-		<div style="float:left;padding:5px; width=70%;margin-left:15%;margin-right:15%;border:2px solid;margin-top:40px;margin-bottom:10px">
-			<h3> {{ course.number }}: {{course.name}} </h3>
-			<p> {{course.description }} </p>
-		</div>
-		<br>
-	{% endfor %}
-	<div id="divide" style="width:100%;margin-bottom:40px;float:left;"></div>
-	<h1 style="width=70%;margin-left:15%;margin-right:15%;margin-top:60px;margin-bottom:10px">Relevant Experiences</h1>
-	{%for experience in experiences %}
-		<div style="float:left;padding:5px; width=70%;margin-left:15%;margin-right:15%;border:2px solid;margin-top:40px;margin-bottom:10px">
-			<h3>{{ experience.title }}</h3>
-			<p> {{ experience.description }} </p>
-		</div>
-	{% endfor %}
+	{% include 'skills.html' %}
+	{% include 'courses.html' %}
+	{% include 'experiences.html' %}
+	{% include 'accomplishments.html' %}
 
 {% endblock content %}
